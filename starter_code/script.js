@@ -1,13 +1,14 @@
 // Task 1: Create a function that randomly chooses among 'rock', 'paper', or 'scissors'.
 var generateComputerChoice = function () {
+    var array = ["rock","paper","scissors"];
     // Task 1, Step 1: Create an array with three elements ("rock", "paper" and "scissors").
-
+    var numbers = Math.floor(Math.random()*3);
     // Task 1, Step 2: Use the JavaScript Math function to generate a random whole
     // number between 0 and 2. Be sure to save it to a variable.
-
+    var choices = array[numbers];
     // Task 1, Step 3: Use this randomly generated number to pull a value from the
     // array (eg myArray[randomNum])
-
+    return choices;
     // Task 1, Step 4: return this new value
 };
 
@@ -18,10 +19,28 @@ var pickWinner = function (userChoice, computerChoice) {
     console.log("computer choice: " + computerChoice);
     // Task 2, Step 1: Create an "if/else if/else" statement that compares the
     // userChoice and computerChoice under any possible game outcome.
-
+    var winner;
+    
+    if (userChoice === computerChoice) {
+        winner = "draw";
+    } else if (userChoice === "rock" && computerChoice === "scissors") {
+        winner = "user";
+    } else if (userChoice === "rock" && computerChoice === "paper") {
+        winner = "computer";
+    } else if (userChoice === "scissors" && computerChoice === "paper") {
+        winner = "user";
+    } else if (userChoice === "scissors" && computerChoice === "rock") {
+        winner = "computer";
+    } else if (userChoice === "paper" && computerChoice === "rock") {
+        winner = "user";
+    } else if (userChoice === "paper" && computerChoice === "scissors") {
+        winner = "computer";
+    }
+    
     // Task 2, Step 2: Depending on who is the winner of the game console.log
     // either "user wins", "computer wins" or "draw"
 
+    console.log("winner: " + winner);
     // Task 4: Show `computerChoice` in HTML after the words "Computer's choice:"
     // Task 5: Show the winner in HTML after the word "Winner:"
 };
